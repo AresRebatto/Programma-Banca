@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Programma_Banca.MainPage"
+             BackgroundColor="#151718">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <ContentView
+                HeightRequest="750"
+                WidthRequest="600"
+                BackgroundColor="#242627">
+
+                <VerticalStackLayout>
+                    <HorizontalStackLayout
+                    HorizontalOptions="Center"
+                    Margin="0, 90, 0, 0">
+                        <Button 
+                            HeightRequest="20"
+                            VerticalOptions="Start"
+                            Text="Log-in"
+                            CornerRadius="20"
+                            BackgroundColor="#FE982C"
+                            TextColor="Black"
+                        />
+
+                        <Button
+                        HeightRequest="20"
+                        VerticalOptions="Start"
+                        Text="Sing-up"
+                        CornerRadius="20"
+                        BackgroundColor="#242627"
+                        TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 70, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white">
+                        <Entry 
+                        x:Name="Nome"
+                        Placeholder="Nome"
+                        TextColor="White"/>
+                    </Border>
+
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white">
+                        <Entry 
+                        x:Name="Cognome"
+                        Placeholder="Cognome"
+                        TextColor="White"/>
+                    </Border>
+
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white">
+                        <Entry 
+                        x:Name="Email"
+                        Placeholder="Email"
+                        TextColor="White"/>
+                    </Border>
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white">
+                        <Entry 
+                        x:Name="Code"
+                        Placeholder="Codice dell'account"
+                        TextColor="White"/>
+                    </Border>
+
+                    <Button
+                        BackgroundColor="#FE982C"
+                        Text="Log-In"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        CornerRadius="20"
+                        HorizontalOptions="End"
+                        Margin="0, 120, 60, 0"/>
+
+                </VerticalStackLayout>
+                
+            </ContentView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

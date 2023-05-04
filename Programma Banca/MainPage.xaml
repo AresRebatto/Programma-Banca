@@ -25,21 +25,27 @@
                             CornerRadius="20"
                             BackgroundColor="#FE982C"
                             TextColor="Black"
+                            x:Name="LogIn"
+                            Clicked="LogIn_Clicked"
                         />
 
                         <Button
                         HeightRequest="20"
                         VerticalOptions="Start"
-                        Text="Sing-up"
+                        Text="Sign-up"
                         CornerRadius="20"
                         BackgroundColor="#242627"
-                        TextColor="White"/>
+                        TextColor="White"
+                        x:Name="SingUp"
+                        Clicked="SingUp_Clicked"/>
                     </HorizontalStackLayout>
+                    <!--Log-in Page-->
                     <Border 
                         HeightRequest="60"
                         Margin="0, 70, 0, 0"
                         WidthRequest="320"
-                        Stroke="white">
+                        Stroke="white"
+                        x:Name="BorderName">
                         <Entry 
                         x:Name="Nome"
                         Placeholder="Nome"
@@ -50,7 +56,8 @@
                         HeightRequest="60"
                         Margin="0, 20, 0, 0"
                         WidthRequest="320"
-                        Stroke="white">
+                        Stroke="white"
+                        x:Name="BorderSurname">
                         <Entry 
                         x:Name="Cognome"
                         Placeholder="Cognome"
@@ -61,7 +68,8 @@
                         HeightRequest="60"
                         Margin="0, 20, 0, 0"
                         WidthRequest="320"
-                        Stroke="white">
+                        Stroke="white"
+                        x:Name="BorderEmail">
                         <Entry 
                         x:Name="Email"
                         Placeholder="Email"
@@ -71,10 +79,78 @@
                         HeightRequest="60"
                         Margin="0, 20, 0, 0"
                         WidthRequest="320"
-                        Stroke="white">
+                        Stroke="white"
+                        x:Name="BorderCode">
                         <Entry 
                         x:Name="Code"
                         Placeholder="Codice dell'account"
+                        TextColor="White"/>
+                    </Border>
+                    <!--Sing-up page-->
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 70, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white"
+                        x:Name="BorderNamesnup"
+                        IsVisible="false">
+                        <Entry 
+                        x:Name="Nomesnup"
+                        Placeholder="Nome"
+                        TextColor="White"/>
+                    </Border>
+                    
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white"
+                        x:Name="BorderSurnamesnup"
+                        IsVisible="false">
+                        <Entry 
+                        x:Name="Cognomesnup"
+                        Placeholder="Cognome"
+                        TextColor="White"/>
+                    </Border>
+
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white"
+                        x:Name="BorderEmailsnup"
+                        IsVisible="false">
+                        <Entry 
+                        x:Name="Emailsnup"
+                        Placeholder="Email"
+                        TextColor="White"/>
+                    </Border>
+
+
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="320"
+                        Stroke="white"
+                        x:Name="BorderCodFiscale"
+                        IsVisible="false">
+                        <Entry 
+                        x:Name="Codfiscale"
+                        Placeholder="Codice fiscale"
+                        TextColor="White"/>
+                    </Border>
+
+
+                    <Border 
+                        HeightRequest="60"
+                        Margin="0, 20, 0, -50"
+                        WidthRequest="320"
+                        Stroke="white"
+                        x:Name="BorderNum"
+                        IsVisible="false">
+                        <Entry 
+                        x:Name="Num"
+                        Placeholder="Numero di telefono"
                         TextColor="White"/>
                     </Border>
 
@@ -85,7 +161,9 @@
                         WidthRequest="100"
                         CornerRadius="20"
                         HorizontalOptions="End"
-                        Margin="0, 120, 60, 0"/>
+                        Margin="0, 120, 60, 0"
+                        x:Name="submit"
+                        Clicked="submit_Clicked"/>
 
                 </VerticalStackLayout>
                 

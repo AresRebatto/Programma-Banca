@@ -163,7 +163,9 @@
                         HorizontalOptions="End"
                         Margin="0, 120, 60, 0"
                         x:Name="submit"
-                        Clicked="submit_Clicked"/>
+                        Clicked="submit_Clicked"
+                        
+                        />
 
                 </VerticalStackLayout>
                 

@@ -14,7 +14,68 @@ public partial class MainPage : ContentPage
 
     private void submit_Clicked(object sender, EventArgs e)
     {
-        if(singUp)
+        bool nameError = true;
+        bool surnameError = true;
+        bool emailError = true;
+        bool codFisError = true;
+        bool numTelError = true;
+        string? numero = Num.Text;
+
+        if (Num.Text == null && numero.Length != 9 && int.TryParse(numero, out int a)) 
+        {
+            BorderNum.Stroke = Color.FromArgb("#FF0000");
+            numTelError = true;
+        }else
+        {
+            BorderNum.Stroke = Color.FromArgb("#FFFFFF");
+            numTelError = false;
+        }
+
+        if(Nomesnup.Text == null)
+        {
+            BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
+            nameError = true;
+        }else
+        {
+            BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
+            nameError = false;
+        }
+
+        if (Cognomesnup.Text == null)
+        {
+            BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
+            surnameError = true;
+        }
+        else
+        {
+            BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
+            surnameError = false;
+        }
+
+        if(Emailsnup.Text==null)
+        {
+            BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
+            emailError = true;
+        }else
+        {
+            BorderEmailsnup.Stroke = Color.FromArgb("#FFFFFF");
+            emailError = false;
+        }
+
+        if (Codfiscale.Text == null)
+        {
+            BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
+            codFisError = true;
+        }
+        else
+        {
+            BorderCodFiscale.Stroke = Color.FromArgb("#FFFFFF");
+            codFisError = false;
+        }
+
+
+
+        if (singUp && !nameError && !surnameError && !emailError && !codFisError)
         {
             Random rnd = new Random();
             string code = $"{rnd.Next(1, 11)}-{rnd.Next(11, 21)}-{rnd.Next(21,31)}-{rnd.Next(31, 41)}-{rnd.Next(1, 1025)}";

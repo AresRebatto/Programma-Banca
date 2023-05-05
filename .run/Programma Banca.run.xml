@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Programma Banca" type="UwpProject" factoryName="UWP">
+    <option name="PROJECT_PATH" value="$PROJECT_DIR$/Programma Banca/Programma Banca.csproj" />
+    <option name="PROGRAM_PARAMETERS" value="" />
+    <method v="2">
+      <option name="Build" default="false" projectName="Programma Banca" projectPath="file://$PROJECT_DIR$/Programma Banca/Programma Banca.csproj" />
+    </method>
+  </configuration>
+</component>

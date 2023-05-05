@@ -21,6 +21,7 @@ public partial class MainPage : ContentPage
         bool numTelError = true;
         string? numero = Num.Text;
 
+        //Verifica dei valori della pagina di SignUp
         if (Num.Text == null && numero.Length != 9 && int.TryParse(numero, out int a)) 
         {
             BorderNum.Stroke = Color.FromArgb("#FF0000");
@@ -45,8 +46,7 @@ public partial class MainPage : ContentPage
         {
             BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
             surnameError = true;
-        }
-        else
+        }else
         {
             BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
             surnameError = false;
@@ -66,20 +66,22 @@ public partial class MainPage : ContentPage
         {
             BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
             codFisError = true;
-        }
-        else
+        }else
         {
             BorderCodFiscale.Stroke = Color.FromArgb("#FFFFFF");
             codFisError = false;
         }
 
 
-
-        if (singUp && !nameError && !surnameError && !emailError && !codFisError)
+        
+        if (singUp && !nameError && !surnameError && !emailError && !codFisError && !numTelError)
         {
-            Random rnd = new Random();
+            Random rnd = new Random(); 
+            //Genera il codice identificativo per l'utente
             string code = $"{rnd.Next(1, 11)}-{rnd.Next(11, 21)}-{rnd.Next(21,31)}-{rnd.Next(31, 41)}-{rnd.Next(1, 1025)}";
             bancaAffidabile.OpenAccount(Nomesnup.Text, Cognomesnup.Text, Emailsnup.Text, code);
+            //Apre la page della Home
+            App.Current.MainPage = new Home();
         }
     }
 

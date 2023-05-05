@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Programma_Banca.Home">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+             xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+             x:Class="Programma_Banca.Home"
+             BackgroundColor="#151718">
+
+    <ScrollView>
+        <ContentView
+            BackgroundColor="#242627">
+            <ContentView
+                BackgroundColor="#151718"
+                WidthRequest="500"
+                HorizontalOptions="Start">
+                <VerticalStackLayout>
+                    <Border
+                        HeightRequest="250"
+                        Stroke="Transparent">
+                        <VerticalStackLayout>
+                            <Image
+                                Source="user.png"
+                                WidthRequest="120"
+                                Margin="18, 40, 0, 15"/>
+                            <Label 
+                                Text="Nome Cognome"
+                                HorizontalOptions="Center"
+                                FontSize="19"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border
+                        Stroke="White">
+                        <HorizontalStackLayout
+                            BackgroundColor="#1A1C1E">
+                            <Image
+                                Source="home.png"
+                                WidthRequest="50"
+                                Margin="20, 20, 10, 20"/>
+                            <Label
+                                Text="Home"
+                                VerticalOptions="Center"
+                                FontSize="19"/>
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <HorizontalStackLayout>
+                        <Image
+                                Source="euro.png"
+                                WidthRequest="50"
+                                Margin="20, 20, 0, 20"/>
+                        <Button
+                                x:Name="Pagamenti"
+                                Text="Pagamenti"
+                                VerticalOptions="Center"
+                                FontSize="19"
+                                BorderWidth="0"
+                                BackgroundColor="#151718"
+                                TextColor="White"
+                                WidthRequest="430"
+                                HeightRequest="90"
+                                Padding="-310, 0, 0, 0"
+                                Clicked="Pagamenti_Clicked"/>
+                    </HorizontalStackLayout>
+                    <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="White"  
+                        WidthRequest="500"/>
+                    <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="White"  
+                        WidthRequest="500"
+                        Margin="0, 400, 0, 0"/>
+                    <HorizontalStackLayout>
+                        <Image
+                                Source="close.png"
+                                WidthRequest="50"
+                                Margin="20, 20, 0, 20"/>
+                        <Button
+                                x:Name="CloseAccount"
+                                Text="Chiudi Account"
+                                VerticalOptions="Center"
+                                FontSize="19"
+                                BorderWidth="0"
+                                BackgroundColor="#151718"
+                                TextColor="White"
+                                WidthRequest="430"
+                                HeightRequest="90"
+                                Padding="-280, 0, 0, 0"
+                                Clicked="CloseAccount_Clicked"/>
+                    </HorizontalStackLayout>
+                    <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="White"  
+                        WidthRequest="500"/>
+                    <HorizontalStackLayout>
+                        <Image
+                                Source="logout.png"
+                                WidthRequest="50"
+                                Margin="20, 20, 0, 20"/>
+                        <Button
+                                x:Name="LogOut"
+                                Text="Log-out"
+                                VerticalOptions="Center"
+                                FontSize="19"
+                                BorderWidth="0"
+                                BackgroundColor="#151718"
+                                TextColor="White"
+                                WidthRequest="430"
+                                HeightRequest="90"
+                                Padding="-330, 0, 0, 0"
+                                Clicked="LogOut_Clicked"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </ContentView>
+        </ContentView>
+    </ScrollView>
 </ContentPage>

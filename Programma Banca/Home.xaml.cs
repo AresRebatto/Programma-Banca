@@ -12,4 +12,19 @@ public partial class Home : ContentPage
     {
         InitializeComponent();
     }
+
+    private void Pagamenti_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void LogOut_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void CloseAccount_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

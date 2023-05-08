@@ -6,9 +6,8 @@
              BackgroundColor="#151718">
 
     <ScrollView>
-        <ContentView
-            BackgroundColor="#242627">
-            <ContentView
+        <HorizontalStackLayout>
+            <Frame
                 BackgroundColor="#151718"
                 WidthRequest="500"
                 HorizontalOptions="Start">
@@ -22,6 +21,7 @@
                                 WidthRequest="120"
                                 Margin="18, 40, 0, 15"/>
                             <Label 
+                                x:Name="user"
                                 Text="Nome Cognome"
                                 HorizontalOptions="Center"
                                 FontSize="19"/>
@@ -68,7 +68,7 @@
                         HeightRequest="1" 
                         BackgroundColor="White"  
                         WidthRequest="500"
-                        Margin="0, 400, 0, 0"/>
+                        Margin="0, 350, 0, 0"/>
                     <HorizontalStackLayout>
                         <Image
                                 Source="close.png"
@@ -110,7 +110,71 @@
                                 Clicked="LogOut_Clicked"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
-            </ContentView>
-        </ContentView>
+            </Frame>
+            <StackLayout
+                BackgroundColor="#242627"
+                WidthRequest="1410">
+                <StackLayout
+                    BackgroundColor="#FE982C"
+                    VerticalOptions="Start"
+                    HeightRequest="300"
+                    WidthRequest="1410">
+                    <Label
+                        Text="964,78€"
+                        HorizontalOptions="Center"
+                        Margin="0, 100, 0, 0"
+                        FontSize="60"/>
+                    <Label
+                        Text="Saldo contabile:"
+                        HorizontalOptions="Center"
+                        FontSize="25"/>
+                    <ImageButton
+                        x:Name="reload"
+                        Source="reload.png"
+                        WidthRequest="10"
+                        HorizontalOptions="End"
+                        Margin="0, 20, 10, 0"
+                        Clicked="reload_Clicked"/>
+                </StackLayout>
+
+                <HorizontalStackLayout
+                    Margin="170, -20, 0, 0">
+                    <Button
+                        x:Name="Deposita"
+                        WidthRequest="250"
+                        CornerRadius="20"
+                        Text="Deposita"
+                        FontSize="20"
+                        BackgroundColor="#F66800"
+                        TextColor="White"
+                        Margin="0, 0, 150, 0"
+                        Clicked="Deposita_Clicked"/>
+                    <Button
+                        x:Name="Preleva"
+                        WidthRequest="250"
+                        CornerRadius="20"
+                        Text="Preleva"
+                        FontSize="20"
+                        BackgroundColor="#F66800"
+                        TextColor="White"
+                        Margin="0, 0, 150, 0"
+                        Clicked="Preleva_Clicked"/>
+                    <Button
+                        x:Name="InviaSoldi"
+                        WidthRequest="200"
+                        CornerRadius="20"
+                        Text="Invia"
+                        FontSize="20"
+                        BackgroundColor="#F66800"
+                        TextColor="White"
+                        Clicked="InviaSoldi_Clicked"/>
+                </HorizontalStackLayout>
+                <Label
+                    Text="Ultimi movimenti:"
+                    FontSize="25"
+                    Margin="40, 50, 0, 0"/>
+            </StackLayout>
+        </HorizontalStackLayout>
+        
     </ScrollView>
 </ContentPage>

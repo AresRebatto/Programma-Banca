@@ -10,9 +10,9 @@ namespace Programma_Banca
     {
         public List<BankAccount> Account { get; set; } = new List<BankAccount>();
 
-        public void OpenAccount(string nome, string cognome, string email, string code)
+        public void OpenAccount(string nome, string cognome, string email, string code, double saldo)
         {
-            BankAccount newAccount = new BankAccount(nome, cognome, email, code);
+            BankAccount newAccount = new BankAccount(nome, cognome, email, code, saldo);
             Account.Add(newAccount);
         }
     }

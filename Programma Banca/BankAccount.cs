@@ -12,13 +12,15 @@ namespace Programma_Banca
         public string Cognome { get; set; }
         public string Email { get; set; }
         public string Code { get; set; }
+        public double Saldo { get; set; }
 
-        public BankAccount(string nome, string cognome, string email, string code) 
+        public BankAccount(string nome, string cognome, string email, string code, double saldo) 
         {
             this.Nome = nome;
             this.Cognome = cognome;
             this.Email = email; 
             this.Code = code;
+            this.Saldo = saldo;
         }
     }
 }

@@ -12,6 +12,22 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
+    bool VerificaEmail(string email)
+    {
+        if (email.Contains('@'))
+        {
+            string[] parts = email.Split('@');
+            if (parts[1] == "gmail.com")
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+
+
+    }
+    
     private void submit_Clicked(object sender, EventArgs e)
     {
         bool nameError = true;
@@ -22,7 +38,7 @@ public partial class MainPage : ContentPage
         string? numero = Num.Text;
 
         //Verifica dei valori della pagina di SignUp
-        if (Num.Text == null && numero.Length != 9 && int.TryParse(numero, out int a)) 
+        if (Num.Text == null || numero.Length != 10 || !int.TryParse(numero, out int a)) 
         {
             BorderNum.Stroke = Color.FromArgb("#FF0000");
             numTelError = true;
@@ -52,7 +68,7 @@ public partial class MainPage : ContentPage
             surnameError = false;
         }
 
-        if(Emailsnup.Text==null)
+        if(Emailsnup.Text==null || !VerificaEmail(Emailsnup.Text))
         {
             BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
             emailError = true;
@@ -79,9 +95,10 @@ public partial class MainPage : ContentPage
             Random rnd = new Random(); 
             //Genera il codice identificativo per l'utente
             string code = $"{rnd.Next(1, 11)}-{rnd.Next(11, 21)}-{rnd.Next(21,31)}-{rnd.Next(31, 41)}-{rnd.Next(1, 1025)}";
-            bancaAffidabile.OpenAccount(Nomesnup.Text, Cognomesnup.Text, Emailsnup.Text, code);
+            double saldo = rnd.Next(1, 1001);
+            bancaAffidabile.OpenAccount(Nomesnup.Text, Cognomesnup.Text, Emailsnup.Text, code, saldo);
             //Apre la page della Home
-            App.Current.MainPage = new Home();
+            App.Current.MainPage = new Home(Nomesnup.Text, Cognomesnup.Text, code, saldo) ;
         }
     }
 

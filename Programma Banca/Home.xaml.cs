@@ -12,21 +12,35 @@ public partial class Home : ContentPage
     string surname;
     string userCode;
     double saldo;
-    public Home(string nome, string cognome, string code, double saldo)
+    
+    //Sign-up constructor
+    public Home(BankAccount account, string code)
     {
         InitializeComponent();
-        name = nome;
-        surname = cognome;
+        name = account.Nome;
+        surname = account.Cognome;
         userCode = code;
-        this.saldo = saldo;
+        saldo = account.Saldo;
+        NewPage();
+
+    }
+    
+    //log-in constructor
+    public Home(BankAccount account)
+    {
+        InitializeComponent();
+        name = account.Nome;
+        surname = account.Cognome;
         NewPage();
 
     }
 
-    private void NewPage()
+    private async void NewPage()
     {
         //Visualizza il nome e cognome nella sezione del profilo
         user.Text = $"{name} {surname}";
+        SaldoAccount.Text = $"{saldo}€";
+        await DisplayAlert("Attenzione", $"Il tuo codice è {userCode}. Segnatelo e NON perderlo", "Ok");
     }
 
     private void Pagamenti_Clicked(object sender, EventArgs e)
@@ -36,7 +50,7 @@ public partial class Home : ContentPage
 
     private void LogOut_Clicked(object sender, EventArgs e)
     {
-
+        App.Current.MainPage = new MainPage();
     }
 
     private void CloseAccount_Clicked(object sender, EventArgs e)

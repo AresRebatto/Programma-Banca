@@ -8,12 +8,14 @@ namespace Programma_Banca
 {
     class Bank
     {
-        public List<BankAccount> Account { get; set; } = new List<BankAccount>();
-
+        public List<BankAccount> Account { get; set; } 
+        public BankAccount newAccount { get; set; }
         public void OpenAccount(string nome, string cognome, string email, string code, double saldo)
         {
-            BankAccount newAccount = new BankAccount(nome, cognome, email, code, saldo);
+            newAccount = new BankAccount(nome, cognome, email, code, saldo);
+            Account = new List<BankAccount>();
             Account.Add(newAccount);
+            
         }
     }
 }

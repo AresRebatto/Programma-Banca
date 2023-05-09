@@ -120,6 +120,7 @@
                     HeightRequest="300"
                     WidthRequest="1410">
                     <Label
+                        x:Name="SaldoAccount"
                         Text="964,78€"
                         HorizontalOptions="Center"
                         Margin="0, 100, 0, 0"

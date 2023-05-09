@@ -36,69 +36,125 @@ public partial class MainPage : ContentPage
         bool codFisError = true;
         bool numTelError = true;
         string? numero = Num.Text;
+        
 
         //Verifica dei valori della pagina di SignUp
-        if (Num.Text == null || numero.Length != 10 || !int.TryParse(numero, out int a)) 
-        {
-            BorderNum.Stroke = Color.FromArgb("#FF0000");
-            numTelError = true;
-        }else
-        {
-            BorderNum.Stroke = Color.FromArgb("#FFFFFF");
-            numTelError = false;
-        }
-
-        if(Nomesnup.Text == null)
-        {
-            BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
-            nameError = true;
-        }else
-        {
-            BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
-            nameError = false;
-        }
-
-        if (Cognomesnup.Text == null)
-        {
-            BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
-            surnameError = true;
-        }else
-        {
-            BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
-            surnameError = false;
-        }
-
-        if(Emailsnup.Text==null || !VerificaEmail(Emailsnup.Text))
-        {
-            BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
-            emailError = true;
-        }else
-        {
-            BorderEmailsnup.Stroke = Color.FromArgb("#FFFFFF");
-            emailError = false;
-        }
-
-        if (Codfiscale.Text == null)
-        {
-            BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
-            codFisError = true;
-        }else
-        {
-            BorderCodFiscale.Stroke = Color.FromArgb("#FFFFFF");
-            codFisError = false;
-        }
+        
 
 
         
-        if (singUp && !nameError && !surnameError && !emailError && !codFisError && !numTelError)
+        if (singUp)
         {
-            Random rnd = new Random(); 
-            //Genera il codice identificativo per l'utente
-            string code = $"{rnd.Next(1, 11)}-{rnd.Next(11, 21)}-{rnd.Next(21,31)}-{rnd.Next(31, 41)}-{rnd.Next(1, 1025)}";
-            double saldo = rnd.Next(1, 1001);
-            bancaAffidabile.OpenAccount(Nomesnup.Text, Cognomesnup.Text, Emailsnup.Text, code, saldo);
-            //Apre la page della Home
-            App.Current.MainPage = new Home(Nomesnup.Text, Cognomesnup.Text, code, saldo) ;
+        
+            if (Num.Text == null || numero.Length != 10 || !int.TryParse(numero, out int a)) 
+            {
+                BorderNum.Stroke = Color.FromArgb("#FF0000");
+                numTelError = true;
+            }else
+            {
+                BorderNum.Stroke = Color.FromArgb("#FFFFFF");
+                numTelError = false;
+            }
+
+            if(Nomesnup.Text == null)
+            {
+                BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
+                nameError = true;
+            }else
+            {
+                BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
+                nameError = false;
+            }
+
+            if (Cognomesnup.Text == null)
+            {
+                BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
+                surnameError = true;
+            }else
+            {
+                BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
+                surnameError = false;
+            }
+
+            if(Emailsnup.Text==null || !VerificaEmail(Emailsnup.Text))
+            {
+                BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
+                emailError = true;
+            }else
+            {
+                BorderEmailsnup.Stroke = Color.FromArgb("#FFFFFF");
+                emailError = false;
+            }
+
+            if (Codfiscale.Text == null)
+            {
+                BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
+                codFisError = true;
+            }else
+            {
+                BorderCodFiscale.Stroke = Color.FromArgb("#FFFFFF");
+                codFisError = false;
+            }
+            
+            if(!nameError && !surnameError && !emailError && !codFisError && !numTelError)
+            {
+                Random rnd = new Random(); 
+                //Genera il codice identificativo per l'utente
+                string code = $"{rnd.Next(1, 11)}-{rnd.Next(11, 21)}-{rnd.Next(21,31)}-{rnd.Next(31, 41)}-{rnd.Next(1, 1025)}";
+                double saldo = rnd.Next(1, 1001);
+                bancaAffidabile.OpenAccount(Nomesnup.Text, Cognomesnup.Text, Emailsnup.Text, code, saldo);
+                //Apre la page della Home
+                App.Current.MainPage = new Home(bancaAffidabile.newAccount, code) ;
+            }
+            
+        }else
+        {
+            foreach (BankAccount account in bancaAffidabile.Account)
+            {
+                if (account.Nome == Nome.Text)
+                {
+                    nameError = true;
+                    BorderName.Stroke = Color.FromArgb("#FF0000");
+                }
+                else
+                {
+                    BorderName.Stroke = Color.FromArgb("#FFFFFF");
+                }
+
+                if (account.Cognome == Cognome.Text)
+                {
+                    surnameError = true;
+                    BorderSurname.Stroke = Color.FromArgb("#FF0000");
+                }
+                else
+                {
+                    BorderSurname.Stroke = Color.FromArgb("#FFFFFF");
+                }
+
+                if (account.Email == Email.Text)
+                {
+                    emailError = true;
+                    BorderEmail.Stroke = Color.FromArgb("#FF0000");
+                }
+                else
+                {
+                    BorderEmail.Stroke = Color.FromArgb("#FFFFFF");
+                }
+
+                if (account.Code == Code.Text)
+                {
+                    if (nameError && surnameError && emailError)
+                    {
+                        App.Current.MainPage = new Home(account);
+                    }
+                    BorderCode.Stroke = Color.FromArgb("#FF0000");
+                    
+                }
+                else
+                {
+                    BorderCode.Stroke = Color.FromArgb("#FFFFFF");
+                }
+            }
         }
     }
 

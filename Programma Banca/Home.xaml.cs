@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Views;
+using MauiToolkitPopupSample;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ public partial class Home : ContentPage
     string surname;
     string userCode;
     double saldo;
+    BankAccount currentAccount;
     
     //Sign-up constructor
     public Home(BankAccount account, string code)
@@ -21,6 +24,8 @@ public partial class Home : ContentPage
         surname = account.Cognome;
         userCode = code;
         saldo = account.Saldo;
+        currentAccount = account;
+        this.ShowPopup(new PopUp(userCode));
         NewPage();
 
     }
@@ -35,12 +40,11 @@ public partial class Home : ContentPage
 
     }
 
-    private async void NewPage()
+    private void NewPage()
     {
         //Visualizza il nome e cognome nella sezione del profilo
         user.Text = $"{name} {surname}";
         SaldoAccount.Text = $"{saldo}€";
-        await DisplayAlert("Attenzione", $"Il tuo codice è {userCode}. Segnatelo e NON perderlo", "Ok");
     }
 
     private void Pagamenti_Clicked(object sender, EventArgs e)
@@ -55,12 +59,12 @@ public partial class Home : ContentPage
 
     private void CloseAccount_Clicked(object sender, EventArgs e)
     {
-
+        App.Current.MainPage = new MainPage(currentAccount);
     }
 
     private void reload_Clicked(object sender, EventArgs e)
     {
-
+        SaldoAccount.Text = $"{currentAccount.Saldo}€";
     }
 
     private void Deposita_Clicked(object sender, EventArgs e)

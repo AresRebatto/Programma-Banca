@@ -57,4 +57,10 @@
 	  <Compile Remove="Home.cs" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="PopUp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

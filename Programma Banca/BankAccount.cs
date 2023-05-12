@@ -22,5 +22,20 @@ namespace Programma_Banca
             this.Code = code;
             this.Saldo = saldo;
         }
+
+        public void Deposit(double deposit)
+        {
+            Saldo = deposit;
+        }
+
+        public bool Withdraw(double prelievo)
+        {
+            if(prelievo <= Saldo)
+            {
+                return true;
+                Saldo -= prelievo;
+            }else
+            { return false; }
+        }
     }
 }

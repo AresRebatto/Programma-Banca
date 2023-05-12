@@ -17,5 +17,29 @@ namespace Programma_Banca
             Account.Add(newAccount);
             
         }
+
+        public bool Transfer(double trasferimento, string userCodeOut)
+        {
+            bool riuscita = true;
+            foreach(BankAccount account in Account)
+            {
+                if(account.Code == userCodeOut)
+                {
+                    account.Saldo += trasferimento;
+                    riuscita = true;
+                    break;
+                }else
+                {
+                    riuscita = false;
+                }
+            }
+
+            return riuscita;
+        }
+
+        public void Close(BankAccount removeAccount)
+        {
+            Account.Remove(removeAccount);
+        }
     }
 }

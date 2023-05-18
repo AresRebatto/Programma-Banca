@@ -46,7 +46,7 @@ public partial class MainPage : ContentPage
         //Verifica dei valori della pagina di SignUp
         
 
-
+             
         
         if (singUp)
         {

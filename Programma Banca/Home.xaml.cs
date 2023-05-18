@@ -1,5 +1,5 @@
 using CommunityToolkit.Maui.Views;
-using MauiToolkitPopupSample;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +25,10 @@ public partial class Home : ContentPage
         userCode = code;
         saldo = account.Saldo;
         currentAccount = account;
-        this.ShowPopup(new PopUp(userCode));
-        NewPage();
+        NewPageSignIn();
 
     }
-    
+
     //log-in constructor
     public Home(BankAccount account)
     {
@@ -45,6 +44,15 @@ public partial class Home : ContentPage
         //Visualizza il nome e cognome nella sezione del profilo
         user.Text = $"{name} {surname}";
         SaldoAccount.Text = $"{saldo}€";
+    }
+
+    private async void NewPageSignIn()
+    {
+        user.Text = $"{name} {surname}";
+        SaldoAccount.Text = $"{saldo}€";
+        await Task.Delay(500);
+        PopUp userpopUp = new PopUp(userCode);
+        this.ShowPopup(userpopUp);
     }
 
     private void Pagamenti_Clicked(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
 
-namespace MauiToolkitPopupSample;
+namespace Programma_Banca;
 
 public partial class PopUp : Popup
 {

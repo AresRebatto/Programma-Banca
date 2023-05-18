@@ -15,9 +15,10 @@ public partial class Home : ContentPage
     string userCode;
     double saldo;
     BankAccount currentAccount;
+    Bank banca;
     
     //Sign-up constructor
-    public Home(BankAccount account, string code)
+    public Home(BankAccount account, string code, Bank banca)
     {
         InitializeComponent();
         name = account.Nome;
@@ -25,16 +26,18 @@ public partial class Home : ContentPage
         userCode = code;
         saldo = account.Saldo;
         currentAccount = account;
+        this.banca = banca;
         NewPageSignIn();
 
     }
 
     //log-in constructor
-    public Home(BankAccount account)
+    public Home(BankAccount account, Bank banca)
     {
         InitializeComponent();
         name = account.Nome;
         surname = account.Cognome;
+        this.banca = banca;
         NewPage();
 
     }
@@ -62,7 +65,7 @@ public partial class Home : ContentPage
 
     private void LogOut_Clicked(object sender, EventArgs e)
     {
-        App.Current.MainPage = new MainPage("appoggio");
+        App.Current.MainPage = new MainPage(banca);
     }
 
     private void CloseAccount_Clicked(object sender, EventArgs e)

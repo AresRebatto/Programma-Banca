@@ -15,9 +15,10 @@ public partial class MainPage : ContentPage
 
     }
 
-    public MainPage(string nothing)
+    public MainPage(Bank banca)
     {
         InitializeComponent();
+        bancaAffidabile = banca;
     }
     public MainPage(BankAccount accountDaChiudere)
     {
@@ -112,7 +113,7 @@ public partial class MainPage : ContentPage
                 double saldo = rnd.Next(1, 1001);
                 bancaAffidabile.OpenAccount(Nomesnup.Text, Cognomesnup.Text, Emailsnup.Text, code, saldo);
                 //Apre la page della Home
-                App.Current.MainPage = new Home(bancaAffidabile.newAccount, code) ;
+                App.Current.MainPage = new Home(bancaAffidabile.newAccount, code, bancaAffidabile) ;
             }
             
         }else
@@ -155,7 +156,7 @@ public partial class MainPage : ContentPage
                     {
                         if (nameError && surnameError && emailError)
                         {
-                            App.Current.MainPage = new Home(account);
+                            App.Current.MainPage = new Home(account, bancaAffidabile);
                         }
                         BorderCode.Stroke = Color.FromArgb("#FF0000");
 

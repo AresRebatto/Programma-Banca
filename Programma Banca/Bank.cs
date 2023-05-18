@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programma_Banca
 {
-    class Bank
+    public class Bank
     {
         public List<BankAccount> Account { get; set; } 
         public BankAccount newAccount { get; set; }

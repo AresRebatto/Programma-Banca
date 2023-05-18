@@ -1,17 +1,24 @@
 ﻿using Microsoft.Maui.Platform;
+using static Programma_Banca.Bank;
 
 namespace Programma_Banca;
 
 public partial class MainPage : ContentPage
 {
-	Bank bancaAffidabile = new Bank();
+    Bank bancaAffidabile;
     bool singUp = false;
 
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+        bancaAffidabile = new Bank();
 
+    }
+
+    public MainPage(string nothing)
+    {
+        InitializeComponent();
+    }
     public MainPage(BankAccount accountDaChiudere)
     {
         InitializeComponent();
@@ -44,10 +51,6 @@ public partial class MainPage : ContentPage
         
 
         //Verifica dei valori della pagina di SignUp
-        
-
-             
-        
         if (singUp)
         {
         

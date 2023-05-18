@@ -62,7 +62,7 @@ public partial class Home : ContentPage
 
     private void LogOut_Clicked(object sender, EventArgs e)
     {
-        App.Current.MainPage = new MainPage();
+        App.Current.MainPage = new MainPage("appoggio");
     }
 
     private void CloseAccount_Clicked(object sender, EventArgs e)

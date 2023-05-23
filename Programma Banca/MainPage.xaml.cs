@@ -57,51 +57,51 @@ public partial class MainPage : ContentPage
         
             if (Num.Text == null || numero.Length != 10 || !int.TryParse(numero, out int a)) 
             {
-                BorderNum.Stroke = Color.FromArgb("#FF0000");
+                BorderNum.Stroke = Color.FromArgb("#FFFFFF");
                 numTelError = true;
             }else
             {
-                BorderNum.Stroke = Color.FromArgb("#FFFFFF");
+                BorderNum.Stroke = Color.FromArgb("#FF0000");
                 numTelError = false;
             }
 
             if(Nomesnup.Text == null)
             {
-                BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
+                BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
                 nameError = true;
             }else
             {
-                BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
+                BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
                 nameError = false;
             }
 
             if (Cognomesnup.Text == null)
             {
-                BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
+                BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
                 surnameError = true;
             }else
             {
-                BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
+                BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
                 surnameError = false;
             }
 
             if(Emailsnup.Text==null || !VerificaEmail(Emailsnup.Text))
             {
-                BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
+                BorderEmailsnup.Stroke = Color.FromArgb("##FFFFFF");
                 emailError = true;
             }else
             {
-                BorderEmailsnup.Stroke = Color.FromArgb("#FFFFFF");
+                BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
                 emailError = false;
             }
 
             if (Codfiscale.Text == null)
             {
-                BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
+                BorderCodFiscale.Stroke = Color.FromArgb("##FFFFFF");
                 codFisError = true;
             }else
             {
-                BorderCodFiscale.Stroke = Color.FromArgb("#FFFFFF");
+                BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
                 codFisError = false;
             }
             
@@ -118,61 +118,57 @@ public partial class MainPage : ContentPage
             
         }else
         {
-            try
+            
+            foreach (BankAccount account in bancaAffidabile.Account)
             {
-                foreach (BankAccount account in bancaAffidabile.Account)
+                if (account.Nome == Nome.Text)
                 {
-                    if (account.Nome == Nome.Text)
-                    {
-                        nameError = true;
-                        BorderName.Stroke = Color.FromArgb("#FF0000");
-                    }
-                    else
-                    {
-                        BorderName.Stroke = Color.FromArgb("#FFFFFF");
-                    }
-
-                    if (account.Cognome == Cognome.Text)
-                    {
-                        surnameError = true;
-                        BorderSurname.Stroke = Color.FromArgb("#FF0000");
-                    }
-                    else
-                    {
-                        BorderSurname.Stroke = Color.FromArgb("#FFFFFF");
-                    }
-
-                    if (account.Email == Email.Text)
-                    {
-                        emailError = true;
-                        BorderEmail.Stroke = Color.FromArgb("#FF0000");
-                    }
-                    else
-                    {
-                        BorderEmail.Stroke = Color.FromArgb("#FFFFFF");
-                    }
-
-                    if (account.Code == Code.Text)
-                    {
-                        if (nameError && surnameError && emailError)
-                        {
-                            App.Current.MainPage = new Home(account, bancaAffidabile);
-                        }
-                        BorderCode.Stroke = Color.FromArgb("#FF0000");
-
-                    }
-                    else
-                    {
-                        BorderCode.Stroke = Color.FromArgb("#FFFFFF");
-                    }
+                    BorderName.Stroke = Color.FromArgb("#FFFFFF");
+                    nameError = true;
+                    
                 }
-            }
-            catch(Exception)
-            {
-                BorderName.Stroke = Color.FromArgb("#FFFFFF");
-                BorderSurname.Stroke = Color.FromArgb("#FFFFFF");
-                BorderEmail.Stroke = Color.FromArgb("#FFFFFF");
-                BorderCode.Stroke = Color.FromArgb("#FFFFFF");
+                else
+                {
+                    BorderName.Stroke = Color.FromArgb("#FF0000");
+                    nameError = false;
+                }
+
+                if (account.Cognome == Cognome.Text)
+                {
+                    BorderSurname.Stroke = Color.FromArgb("#FFFFFF");
+                    surnameError = true;
+                }
+                else
+                {
+                    BorderSurname.Stroke = Color.FromArgb("#FF0000");
+                    surnameError = false;
+                }
+
+                if (account.Email == Email.Text)
+                {
+                    BorderEmail.Stroke = Color.FromArgb("#FFFFFF");
+                    emailError = true;
+                    
+                }
+                else
+                {
+                    BorderEmail.Stroke = Color.FromArgb("#FF0000");
+                    emailError = false;
+                }
+
+                if (account.Code == Code.Text)
+                {
+                    if (nameError && surnameError && emailError)
+                    {
+                        App.Current.MainPage = new Home(account, bancaAffidabile);
+                    }
+                    BorderCode.Stroke = Color.FromArgb("#FFFFFF");
+
+                }
+                else
+                {
+                    BorderCode.Stroke = Color.FromArgb("#FF0000");
+                }
             }
             
         }

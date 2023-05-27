@@ -6,11 +6,14 @@ public partial class PopUpPrelievo : Popup
 {
 	double saldo;
 	Bank banca;
-	public PopUpPrelievo(double saldo, Bank banca)
+	BankAccount account;
+	public PopUpPrelievo(BankAccount account, Bank banca)
 	{
 		InitializeComponent();
-		this.saldo = saldo;
+		this.saldo = account.Saldo;
 		this.banca = banca;
+		this.account = account;
+
 	}
 
     private void Button_Clicked(object sender, EventArgs e)

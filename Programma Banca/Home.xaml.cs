@@ -86,7 +86,8 @@ public partial class Home : ContentPage
     private async void Preleva_Clicked(object sender, EventArgs e)
     {
         await Task.Delay(500);
-        this.ShowPopup(new PopUpPrelievo(currentAccount.Saldo, banca));
+        this.ShowPopup(new PopUpPrelievo(currentAccount, banca));
+        
     }
 
     private void InviaSoldi_Clicked(object sender, EventArgs e)

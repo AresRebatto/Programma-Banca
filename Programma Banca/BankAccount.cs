@@ -32,8 +32,9 @@ namespace Programma_Banca
         {
             if(prelievo <= Saldo)
             {
-                return true;
                 Saldo -= prelievo;
+                return true;
+                
             }else
             { return false; }
         }

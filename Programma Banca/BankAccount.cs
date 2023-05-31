@@ -13,6 +13,7 @@ namespace Programma_Banca
         public string Email { get; set; }
         public string Code { get; set; }
         public double Saldo { get; set; }
+        public bool Transazione { get; set; } = false;
 
         public BankAccount(string nome, string cognome, string email, string code, double saldo) 
         {
@@ -28,15 +29,9 @@ namespace Programma_Banca
             Saldo = deposit;
         }
 
-        public bool Withdraw(double prelievo)
+        public void Withdraw(double prelievo)
         {
-            if(prelievo <= Saldo)
-            {
-                Saldo -= prelievo;
-                return true;
-                
-            }else
-            { return false; }
+            Saldo -= prelievo;
         }
     }
 }

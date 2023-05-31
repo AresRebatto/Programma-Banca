@@ -24,12 +24,23 @@ public partial class PopUpPrelievo : Popup
         }else
 		{
             banca.TransazioniOut.Add(Convert.ToDouble(ImportoPrev.Text));
-            Close();
+            if (banca.TransazioniOut.Last() < saldo)//Verifica se il valore inserito nel PopUp è stato inserito valore minore del saldo
+            {
+                account.Withdraw(banca.TransazioniOut.Last());
+                account.Transazione = true;
+                Close();
+            }
+            else
+            {
+                BorderImport.Stroke = Color.FromArgb("#FF0000");
+            }
+            
+
         }
     }
 
     private void ClosePrev_Clicked(object sender, EventArgs e)
     {
-		Close();
+            Close();
     }
 }

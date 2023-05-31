@@ -1,5 +1,5 @@
 using CommunityToolkit.Maui.Views;
-using Microsoft.UI.Xaml.Controls.Primitives;
+//using Microsoft.UI.Xaml.Controls.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,7 +87,25 @@ public partial class Home : ContentPage
     {
         await Task.Delay(500);
         this.ShowPopup(new PopUpPrelievo(currentAccount, banca));
-        
+        do
+        {
+            await Task.Delay(500);
+            SaldoAccount.Text = $"{currentAccount.Saldo}€";
+        } while (currentAccount.Transazione == false);
+
+        currentAccount.Transazione = false;
+        //try
+        //{
+        //    if(banca.TransazioniOut.Last() < saldo)//Verifica se il valore inserito nel PopUp è stato inserito valore minore del saldo
+        //    {
+        //        currentAccount.Withdraw(banca.TransazioniOut.Last());
+        //    }
+        //}catch (NullReferenceException ex)
+        //{
+        //    await Task.Delay(2000);//Dà il tempo di inserire il valore nel PopUp
+        //    throw;//Torna all'errore sperando che l'utente abbia inserito il valore
+        //}
+
     }
 
     private void InviaSoldi_Clicked(object sender, EventArgs e)

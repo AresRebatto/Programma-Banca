@@ -57,51 +57,51 @@ public partial class MainPage : ContentPage
         
             if (Num.Text == null || numero.Length != 10 || !int.TryParse(numero, out int a)) 
             {
-                BorderNum.Stroke = Color.FromArgb("#FFFFFF");
+                BorderNum.Stroke = Color.FromArgb("#FF0000");
                 numTelError = true;
             }else
             {
-                BorderNum.Stroke = Color.FromArgb("#FF0000");
+                BorderNum.Stroke = Color.FromArgb("#FFFFFF");
                 numTelError = false;
             }
 
             if(Nomesnup.Text == null)
             {
-                BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
+                BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
                 nameError = true;
             }else
             {
-                BorderNamesnup.Stroke = Color.FromArgb("#FF0000");
+                BorderNamesnup.Stroke = Color.FromArgb("#FFFFFF");
                 nameError = false;
             }
 
             if (Cognomesnup.Text == null)
             {
-                BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
+                BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
                 surnameError = true;
             }else
             {
-                BorderSurnamesnup.Stroke = Color.FromArgb("#FF0000");
+                BorderSurnamesnup.Stroke = Color.FromArgb("#FFFFFF");
                 surnameError = false;
             }
 
             if(Emailsnup.Text==null || !VerificaEmail(Emailsnup.Text))
             {
-                BorderEmailsnup.Stroke = Color.FromArgb("##FFFFFF");
+                BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
                 emailError = true;
             }else
             {
-                BorderEmailsnup.Stroke = Color.FromArgb("#FF0000");
+                BorderEmailsnup.Stroke = Color.FromArgb("##FFFFFF");
                 emailError = false;
             }
 
             if (Codfiscale.Text == null)
             {
-                BorderCodFiscale.Stroke = Color.FromArgb("##FFFFFF");
+                BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
                 codFisError = true;
             }else
             {
-                BorderCodFiscale.Stroke = Color.FromArgb("#FF0000");
+                BorderCodFiscale.Stroke = Color.FromArgb("##FFFFFF");
                 codFisError = false;
             }
             

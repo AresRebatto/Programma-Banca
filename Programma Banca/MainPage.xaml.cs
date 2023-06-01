@@ -20,9 +20,10 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         bancaAffidabile = banca;
     }
-    public MainPage(BankAccount accountDaChiudere)
+    public MainPage(Bank banca, BankAccount accountDaChiudere)
     {
         InitializeComponent();
+        bancaAffidabile = banca;
         bancaAffidabile.Close(accountDaChiudere);
     }
     bool VerificaEmail(string email)
@@ -37,8 +38,6 @@ public partial class MainPage : ContentPage
         }
         else
             return false;
-
-
     }
     
     private void submit_Clicked(object sender, EventArgs e)

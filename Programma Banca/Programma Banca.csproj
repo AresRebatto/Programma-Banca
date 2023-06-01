@@ -64,6 +64,9 @@
 	  <MauiXaml Update="PopUpDeposito.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="PopUpInvio.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PopUpPrelievo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

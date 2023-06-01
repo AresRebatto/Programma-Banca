@@ -33,5 +33,17 @@ namespace Programma_Banca
         {
             Saldo -= prelievo;
         }
+
+        public void Send(double somma, Bank banca, string ricevente)
+        {
+            foreach(BankAccount utenti in banca.Account)
+            {
+                if(utenti.Nome == ricevente)
+                {
+                    utenti.Deposit(somma);
+                    Saldo -= somma;
+                }
+            }
+        }
     }
 }

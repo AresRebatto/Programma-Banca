@@ -6,6 +6,7 @@
              BackgroundColor="#151718">
 
     <ScrollView>
+        
         <HorizontalStackLayout>
             <Frame
                 BackgroundColor="#151718"

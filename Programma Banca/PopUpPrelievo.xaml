@@ -23,14 +23,14 @@
         <Border
             x:Name="BorderImport"
             HeightRequest="50"
-            WidthRequest="390"
+            WidthRequest="270"
             Margin="10"
             >
         <Entry
             x:Name="ImportoPrev"
             Placeholder="Importo"
             HeightRequest="50"
-            WidthRequest="290"/>
+            WidthRequest="270"/>
         </Border>
 
         <Button

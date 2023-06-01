@@ -38,6 +38,7 @@ public partial class Home : ContentPage
         name = account.Nome;
         surname = account.Cognome;
         this.banca = banca;
+        saldo = account.Saldo;
         NewPage();
 
     }
@@ -70,7 +71,7 @@ public partial class Home : ContentPage
 
     private void CloseAccount_Clicked(object sender, EventArgs e)
     {
-        App.Current.MainPage = new MainPage(currentAccount);
+        App.Current.MainPage = new MainPage(banca, currentAccount);
     }
 
     private void reload_Clicked(object sender, EventArgs e)
@@ -104,8 +105,16 @@ public partial class Home : ContentPage
         currentAccount.Transazione = false;
     }
 
-    private void InviaSoldi_Clicked(object sender, EventArgs e)
+    private async void InviaSoldi_Clicked(object sender, EventArgs e)
     {
+        await Task.Delay(500);
+        this.ShowPopup(new PopUpInvio(currentAccount, banca));
+        do
+        {
+            await Task.Delay(500);
+            SaldoAccount.Text = $"{currentAccount.Saldo}€";
+        } while (currentAccount.Transazione == false);
 
+        currentAccount.Transazione = false;
     }
 }

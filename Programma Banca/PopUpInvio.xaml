@@ -3,8 +3,8 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
            CanBeDismissedByTappingOutsideOfPopup="false"
-           Size="300, 170"
-             x:Class="Programma_Banca.PopUpDeposito">
+           Size="300, 250"
+           x:Class="Programma_Banca.PopUpInvio">
     <VerticalStackLayout
         BackgroundColor="#242627">
         <Button 
@@ -27,8 +27,21 @@
             Margin="10"
             >
             <Entry
-            x:Name="ImportoDep"
+            x:Name="ImportoInvio"
             Placeholder="Importo"
+            HeightRequest="50"
+            WidthRequest="270"/>
+        </Border>
+
+        <Border
+            x:Name="BorderName"
+            HeightRequest="50"
+            WidthRequest="270"
+            Margin="10"
+            >
+            <Entry
+            x:Name="NomeInvio"
+            Placeholder="Nome utente"
             HeightRequest="50"
             WidthRequest="270"/>
         </Border>

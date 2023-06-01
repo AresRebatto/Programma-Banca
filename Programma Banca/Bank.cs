@@ -11,9 +11,11 @@ namespace Programma_Banca
         public List<BankAccount> Account { get; set; } 
         public BankAccount newAccount { get; set; }
         public List<double> TransazioniOut { get; set; }
+        public List<double> TransazioniIn { get; set; }
 
         public Bank() { 
             TransazioniOut = new List<double>();
+            TransazioniIn = new List<double>();
             Account = new List<BankAccount>();
             Account.Add(new BankAccount("Root", "Root", "root.reb@gmail.com", "127.0.0.1", 0));
         

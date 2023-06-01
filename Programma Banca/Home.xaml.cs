@@ -78,9 +78,17 @@ public partial class Home : ContentPage
         SaldoAccount.Text = $"{currentAccount.Saldo}€";
     }
 
-    private void Deposita_Clicked(object sender, EventArgs e)
+    private async void Deposita_Clicked(object sender, EventArgs e)
     {
+        await Task.Delay(500);
+        this.ShowPopup(new PopUpDeposito(currentAccount, banca));
+        do
+        {
+            await Task.Delay(500);
+            SaldoAccount.Text = $"{currentAccount.Saldo}€";
+        } while (currentAccount.Transazione == false);
 
+        currentAccount.Transazione = false;
     }
 
     private async void Preleva_Clicked(object sender, EventArgs e)
@@ -94,18 +102,6 @@ public partial class Home : ContentPage
         } while (currentAccount.Transazione == false);
 
         currentAccount.Transazione = false;
-        //try
-        //{
-        //    if(banca.TransazioniOut.Last() < saldo)//Verifica se il valore inserito nel PopUp è stato inserito valore minore del saldo
-        //    {
-        //        currentAccount.Withdraw(banca.TransazioniOut.Last());
-        //    }
-        //}catch (NullReferenceException ex)
-        //{
-        //    await Task.Delay(2000);//Dà il tempo di inserire il valore nel PopUp
-        //    throw;//Torna all'errore sperando che l'utente abbia inserito il valore
-        //}
-
     }
 
     private void InviaSoldi_Clicked(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace Programma_Banca
 
         public void Deposit(double deposit)
         {
-            Saldo = deposit;
+            Saldo += deposit;
         }
 
         public void Withdraw(double prelievo)

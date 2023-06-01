@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+           CanBeDismissedByTappingOutsideOfPopup="false"
+           Size="300, 170"
+             x:Class="Programma_Banca.PopUpDeposito">
+    <VerticalStackLayout
+        BackgroundColor="#242627">
+        <Button 
+            Text="X"
+            FontSize="10"
+            x:Name="ClosePrev"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            BorderWidth="0"
+            HeightRequest="10"
+            WidthRequest="10"
+            BackgroundColor="#242627"
+            TextColor="White"
+            Clicked="ClosePrev_Clicked"
+            />
+        <Border
+            x:Name="BorderImport"
+            HeightRequest="50"
+            WidthRequest="390"
+            Margin="10"
+            >
+            <Entry
+            x:Name="ImportoDep"
+            Placeholder="Importo"
+            HeightRequest="50"
+            WidthRequest="290"/>
+        </Border>
+
+        <Button
+            BackgroundColor="#FE982C"
+            Text="Invia"
+            TextColor="White"
+            WidthRequest="100"
+            HorizontalOptions="End"
+            Margin="0, 5, 5, 0"
+            Clicked="Button_Clicked"
+            />
+    </VerticalStackLayout>
+</mct:Popup>

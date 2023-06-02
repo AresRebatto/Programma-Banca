@@ -27,6 +27,7 @@ public partial class Home : ContentPage
         saldo = account.Saldo;
         currentAccount = account;
         this.banca = banca;
+        Totale.Text = $"Al momento serviamo per un ammontare di: {currentAccount.Reload(banca)}€";
         NewPageSignIn();
 
     }
@@ -55,8 +56,8 @@ public partial class Home : ContentPage
         user.Text = $"{name} {surname}";
         SaldoAccount.Text = $"{saldo}€";
         await Task.Delay(500);
-        PopUp userpopUp = new PopUp(userCode);
-        this.ShowPopup(userpopUp);
+        //PopUp userpopUp = new PopUp(userCode);
+        this.ShowPopup(new PopUp(userCode));
     }
 
     private void Pagamenti_Clicked(object sender, EventArgs e)
@@ -76,6 +77,7 @@ public partial class Home : ContentPage
 
     private void reload_Clicked(object sender, EventArgs e)
     {
+        Totale.Text = $"Al momento serviamo per un ammontare di: {currentAccount.Reload(banca)}€";
         SaldoAccount.Text = $"{currentAccount.Saldo}€";
     }
 
@@ -89,6 +91,10 @@ public partial class Home : ContentPage
             SaldoAccount.Text = $"{currentAccount.Saldo}€";
         } while (currentAccount.Transazione == false);
 
+        movimento4.Text = movimento3.Text;
+        movimento3.Text = movimento2.Text;
+        movimento2.Text = movimento1.Text;
+        movimento1.Text = $"+{banca.TransazioniIn.Last()}€";
         currentAccount.Transazione = false;
     }
 
@@ -101,7 +107,10 @@ public partial class Home : ContentPage
             await Task.Delay(500);
             SaldoAccount.Text = $"{currentAccount.Saldo}€";
         } while (currentAccount.Transazione == false);
-
+        movimento4.Text = movimento3.Text;
+        movimento3.Text = movimento2.Text;
+        movimento2.Text = movimento1.Text;
+        movimento1.Text = $"-{banca.TransazioniOut.Last()}€";
         currentAccount.Transazione = false;
     }
 
@@ -114,7 +123,10 @@ public partial class Home : ContentPage
             await Task.Delay(500);
             SaldoAccount.Text = $"{currentAccount.Saldo}€";
         } while (currentAccount.Transazione == false);
-
+        movimento4.Text = movimento3.Text;
+        movimento3.Text = movimento2.Text;
+        movimento2.Text = movimento1.Text;
+        movimento1.Text = $"-{banca.TransazioniOut.Last()}€";
         currentAccount.Transazione = false;
     }
 }

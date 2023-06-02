@@ -6,7 +6,6 @@
              BackgroundColor="#151718">
 
     <ScrollView>
-        
         <HorizontalStackLayout>
             <Frame
                 BackgroundColor="#151718"
@@ -175,6 +174,30 @@
                     Text="Ultimi movimenti:"
                     FontSize="25"
                     Margin="40, 50, 0, 0"/>
+                <Label
+                x:Name="movimento1"
+                Text=""
+                FontSize="35"
+                Margin="40, 25, 0, 0"/>
+                <Label
+                x:Name="movimento2"
+                Text=""
+                FontSize="35"
+                Margin="40, 25, 0, 0"/>
+                <Label
+                x:Name="movimento3"
+                Text=""
+                FontSize="35"
+                Margin="40, 25, 0, 0"/>
+                <Label
+                x:Name="movimento4"
+                Text=""
+                FontSize="35"
+                Margin="40, 25, 0, 0"/>
+                <!--Premere tasto reload per aggiornare-->
+                <Label 
+                    x:Name="Totale"
+                    Margin="40, 270, 0, 0"/>
             </StackLayout>
         </HorizontalStackLayout>
         
